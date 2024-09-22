@@ -1,0 +1,182 @@
+xrun: 19.03-s019: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	xrun	19.03-s019: Started on Jun 15, 2020 at 16:19:46 IST
+xrun
+	-f lab8.f
+		typedefs.sv
+		alu.sv
+		control.sv
+		counter.sv
+		mem.sv
+		register.sv
+		scale_mux.sv
+		cpu.sv
+		cpu_test.sv
+		-timescale 1ns/100ps
+		+access+rwc
+file: typedefs.sv
+	package worklib.typedefs:sv
+		errors: 0, warnings: 0
+file: alu.sv
+	module worklib.alu:sv
+		errors: 0, warnings: 0
+file: control.sv
+	module worklib.control:sv
+		errors: 0, warnings: 0
+file: counter.sv
+	module worklib.counter:sv
+		errors: 0, warnings: 0
+file: mem.sv
+	module worklib.mem:sv
+		errors: 0, warnings: 0
+file: register.sv
+	module worklib.register:sv
+		errors: 0, warnings: 0
+file: scale_mux.sv
+	module worklib.scale_mux:sv
+		errors: 0, warnings: 0
+file: cpu.sv
+	module worklib.cpu:sv
+		errors: 0, warnings: 0
+file: cpu_test.sv
+	module worklib.cpu_test:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		typedefs
+		$unit_0x282303d7
+		cpu_test
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.control:sv <0x5472aeb0>
+			streams:   6, words:  4990
+		worklib.scale_mux:sv <0x66802620>
+			streams:   1, words:   255
+		worklib.alu:sv <0x32701e4e>
+			streams:   5, words:  2417
+		worklib.counter:sv <0x2e71e179>
+			streams:   2, words:   633
+		worklib.register:sv <0x48e329b0>
+			streams:   2, words:   478
+		worklib.cpu_test:sv <0x1396b714>
+			streams:  17, words: 17496
+		worklib.mem:sv <0x6c9234ca>
+			streams:   4, words:  1366
+		worklib.cpu:sv <0x7ceab7fa>
+			streams:  31, words:  6869
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                   Instances  Unique
+		Modules:                   9       8
+		Verilog packages:          1       1
+		Registers:                46      45
+		Scalar wires:             38       -
+		Vectored wires:           25       -
+		Always blocks:            12      11
+		Initial blocks:            3       3
+		Cont. assignments:         7       7
+		Pseudo assignments:       36      36
+		Compilation units:         1       1
+		Simulation timescale:  100ps
+	Writing initial simulation snapshot: worklib.cpu_test:sv
+Loading snapshot worklib.cpu_test:sv .................... Done
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /grid/avs/install/xcelium/1903/latest/tools/xcelium/files/xmsimrc
+xcelium> run
+
+****************************************
+THE FOLLOWING DEBUG TASKS ARE AVAILABLE:
+1- The basic CPU diagnostic.            
+2- The advanced CPU diagnostic.         
+3- The Fibonacci program.               
+****************************************
+
+Enter ' deposit test_number # ; run' 
+
+Simulation stopped via $stop(1) at time 0 FS + 0
+./cpu_test.sv:70         $stop; // wait for test number
+xcelium> #1
+xcelium> run
+xmsim: *W,RMEMNOF: $readmem error: open failed on file "CPUtest.dat".
+            File: ./cpu_test.sv, line = 94, pos = 49
+           Scope: cpu_test
+            Time: 0 FS + 0
+
+xmsim: *W,NOCOND: Unique case violation:  Every case item expression was false.
+            File: ./control.sv, line = 42, pos = 12
+           Scope: cpu_test.cpu1.cntl
+            Time: 0 FS + 3
+
+     TIME       PC    INSTR    OP   ADR   DATA
+
+  ----------    --    -----    --   ---   ----
+
+     95.0 ns    00          x    00     xx     xx
+
+CPU TEST x PASSED
+
+****************************************
+THE FOLLOWING DEBUG TASKS ARE AVAILABLE:
+1- The basic CPU diagnostic.            
+2- The advanced CPU diagnostic.         
+3- The Fibonacci program.               
+****************************************
+
+Enter ' deposit test_number # ; run' 
+
+Simulation stopped via $stop(1) at time 130 NS + 1
+./cpu_test.sv:70         $stop; // wait for test number
+xcelium> 1;run
+xmsim: *E,TCLERR: invalid command name "1".
+xcelium> #2
+xcelium> #2; run
+xcelium> test_number #1 ; run
+xmsim: *E,TCLERR: invalid command name "test_number".
+xcelium> 1 ; run
+xmsim: *E,TCLERR: invalid command name "1".
+xcelium> #1; run
+xcelium> deposit test_number 1 ; run
+CPUtest1 - BASIC CPU DIAGNOSTIC PROGRAM 
+
+THIS TEST SHOULD HALT WITH THE PC AT 17 hex
+
+     TIME       PC    INSTR    OP   ADR   DATA
+
+  ----------    --    -----    --   ---   ----
+
+    225.0 ns    00    JMP      7    00     xx     fe
+    385.0 ns    1e    JMP      7    1e     00     e3
+    545.0 ns    03    LDA      5    03     00     ba
+    705.0 ns    04    SKZ      1    04     00     20
+    865.0 ns    06    LDA      5    06     00     bb
+   1025.0 ns    07    SKZ      1    07     ff     20
+   1185.0 ns    08    JMP      7    08     ff     ea
+   1345.0 ns    0a    STO      6    0a     ff     dc
+   1505.0 ns    0b    LDA      5    0b     ff     ba
+   1665.0 ns    0c    STO      6    0c     00     dc
+   1825.0 ns    0d    LDA      5    0d     00     bc
+   1985.0 ns    0e    SKZ      1    0e     00     20
+   2145.0 ns    10    XOR      4    10     00     9b
+   2305.0 ns    11    SKZ      1    11     ff     20
+   2465.0 ns    12    JMP      7    12     ff     f4
+   2625.0 ns    14    XOR      4    14     ff     9b
+   2785.0 ns    15    SKZ      1    15     00     20
+   2945.0 ns    17    HLT      0    17     00     00
+
+CPU TEST 1 PASSED
+
+****************************************
+THE FOLLOWING DEBUG TASKS ARE AVAILABLE:
+1- The basic CPU diagnostic.            
+2- The advanced CPU diagnostic.         
+3- The Fibonacci program.               
+****************************************
+
+Enter ' deposit test_number # ; run' 
+
+Simulation stopped via $stop(1) at time 2980 NS + 1
+./cpu_test.sv:70         $stop; // wait for test number
+xcelium> exit
+TOOL:	xrun	19.03-s019: Exiting on Jun 15, 2020 at 16:23:35 IST  (total: 00:03:49)

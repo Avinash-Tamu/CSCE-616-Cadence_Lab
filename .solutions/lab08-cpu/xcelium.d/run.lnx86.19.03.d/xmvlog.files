@@ -1,0 +1,13 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/servers/esd_noida/bhairava/testing/SysVlogDesVer_20_5/.solutions/lab08-cpu/typedefs.sv
+/servers/esd_noida/bhairava/testing/SysVlogDesVer_20_5/.solutions/lab08-cpu/alu.sv
+/servers/esd_noida/bhairava/testing/SysVlogDesVer_20_5/.solutions/lab08-cpu/control.sv
+/servers/esd_noida/bhairava/testing/SysVlogDesVer_20_5/.solutions/lab08-cpu/counter.sv
+/servers/esd_noida/bhairava/testing/SysVlogDesVer_20_5/.solutions/lab08-cpu/mem.sv
+/servers/esd_noida/bhairava/testing/SysVlogDesVer_20_5/.solutions/lab08-cpu/register.sv
+/servers/esd_noida/bhairava/testing/SysVlogDesVer_20_5/.solutions/lab08-cpu/scale_mux.sv
+/servers/esd_noida/bhairava/testing/SysVlogDesVer_20_5/.solutions/lab08-cpu/cpu.sv
+/servers/esd_noida/bhairava/testing/SysVlogDesVer_20_5/.solutions/lab08-cpu/cpu_test.sv
